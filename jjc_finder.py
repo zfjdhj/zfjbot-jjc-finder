@@ -37,7 +37,7 @@ def post_jjc(user_id):
 
     except Exception as ex:
         print("error", ex)
-        return "error"
+        return ex
 
 @sv.on_prefix("jjc场次")
 async def jjc_finder(bot,ev):
@@ -84,7 +84,7 @@ async def jjc_finder(bot,ev):
                             + f'战力:{res_group3.group(2)}\n' \
                             + f'竞技场场次：{res_group4.group(2)}\n' \
                             + f'公主竞技场场次：{res_group5.group(2)}\n'\
-                            + f'================\n战力查询失败，可能您还未进场或者稍后再试'
+                            + f'================\n场均战力查询失败，可能您还未进场或者稍后再试'
                     await bot.send(ev,reply)
         else:
             await bot.send(ev,f"查询失败，Error:\n{res1}")
